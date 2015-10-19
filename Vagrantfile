@@ -20,6 +20,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.name = "emp7"
       v.memory = 1024
   end
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = true
+
+  config.hostmanager.aliases = %w(php7.dev)
+  # config.vm.hostname = "php7.dev"
+  # config.hostsupdater.aliases = ["www.php7.dev"]
+
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

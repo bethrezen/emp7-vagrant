@@ -112,5 +112,11 @@ mysqladmin -uroot -p$MYSQL_PASSWORD create $MYSQL_DATABASE
 echo "==== Installing gulp ===="
 npm install -g gulp
 
+echo "==== Installing composer ===="
+cd /root
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+chmod +x /usr/local/bin/composer
+
 echo "==== DONE ===="
 

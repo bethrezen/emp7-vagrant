@@ -65,6 +65,7 @@ wget -qO /usr/local/php7/$PHP_ARCHIVE http://repos.zend.com/zend-server/early-ac
 cd /usr/local/php7
 tar -xzPf $PHP_ARCHIVE
 mkdir /usr/local/php7/etc/conf.d
+ln -s /usr/local/php7/bin/php /usr/local/bin/php
 
 echo "==== Creating fpm init scripts ===="
 wget -O /etc/init.d/php7-fpm "https://gist.github.com/bjornjohansen/bd1f0a39fd41c7dfeb3a/raw/f0312ec54d1be4a8f6f3e708e46ee34d44ef4657/etc%20inid.d%20php7-fpm"
@@ -111,10 +112,11 @@ mysqladmin -uroot -p$MYSQL_PASSWORD create $MYSQL_DATABASE
 
 echo "==== Installing gulp ===="
 npm install -g gulp
+ln -s /usr/bin/nodejs /usr/local/bin/node
 
 echo "==== Installing composer ===="
 cd /root
-curl -sS https://getcomposer.org/installer | php
+curl -sS https://getcomposer.org/installer | /usr/local/php7/bin/php
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 
